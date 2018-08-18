@@ -1,7 +1,7 @@
 var canvas = document.createElement('canvas');
 document.body.appendChild(canvas);
 canvas.width = 400;
-canvas.height = 400;
+canvas.height = 350;
 var ctx = canvas.getContext('2d');
 ctx.fillStyle = 'yellow';
 ctx.fillRect(0, 0, 400, 400);
