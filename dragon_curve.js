@@ -19,6 +19,7 @@ for (var i = 0; i < numstep; i++) {
  }
 }
 console.log(seq)
+var lastdir = 'end'; 
 var vecchange = {
   //fold type
 'vee':
@@ -29,25 +30,31 @@ var vecchange = {
   // newdir based on lastdir
   {'up':'right','down':'left','left':'up','right':'down'}
 };
-var lastdir = 'end'; 
 var newdir;
-
-for (var k = 1; k < seq.length;k ++) {
-  ctx.beginPath();
-  ctx.moveTo(current[0],current[1]);
-  newdir = vecchange[seq[k]][lastdir];
-  if (newdir === 'up') {
-    current[1] += -2;
-  }else if (newdir === 'down') {
-    current[1] += 2;
-  }else if (newdir === 'left') {
-    current[0] += -2;
-  }else if (newdir === 'right') {
-    current[0] += 2;
+var counter = 1;
+var whatev = function(){
+  for (var i = 0; i < 11; i ++) {
+    if (counter === seq.length -1 ){
+      return;
+    }
+    ctx.beginPath();
+    ctx.moveTo(current[0],current[1]);
+    newdir = vecchange[seq[counter]][lastdir];
+    if (newdir === 'up') {
+      current[1] += -2;
+    }else if (newdir === 'down') {
+      current[1] += 2;
+    }else if (newdir === 'left') {
+      current[0] += -2;
+    }else if (newdir === 'right') {
+      current[0] += 2;
+    }
+    ctx.lineTo(current[0],current[1]);
+    ctx.stroke(); 
+    lastdir = newdir;
+    counter += 1;
   }
-  //console.log(newdir);
-  ctx.lineTo(current[0],current[1]);
-  //console.log(current);
-  ctx.stroke();
-  lastdir = newdir;
-}
+  requestAnimationFrame(whatev);
+};
+
+requestAnimationFrame(whatev);

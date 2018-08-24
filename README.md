@@ -1,4 +1,4 @@
-# Dragon Curve
+# The Dragon Curve
 Inspiration for this:
 [![DRAGON CURVE NUMBERPHILE](https://img.youtube.com/vi/wCyC-K_PnRY/0.jpg)](https://www.youtube.com/watch?v=wCyC-K_PnRY)
 
